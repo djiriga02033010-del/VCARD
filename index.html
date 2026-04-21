@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carte de visite - Aboidjé Cyrie ASSANVO</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI';
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            background: white;
+            width: 350px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            margin: auto;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 45px;
+            color: #1e3c72;
+            border: 4px solid white;
+            margin-bottom: 15px;
+        }
+
+        .body {
+            padding: 20px;
+        }
+
+        .item {
+            margin: 10px 0;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            background: #1e3c72;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <div class="header">
+        <!-- Icône justice -->
+        <div class="avatar">
+            <i class="fas fa-scale-balanced"></i>
+        </div>
+
+        <h2>Aboidjé Cyrie ASSANVO</h2>
+        <p>Attaché des Greffes et Parquets</p>
+        <small>Tribunal de Première Instance de Dabou</small>
+
+    </div>
+
+    <div class="body">
+        <div class="item"><i class="fas fa-phone"></i> +225 05 45 24 31 45</div>
+        <div class="item"><i class="fas fa-phone"></i> +225 07 47 27 52 71</div>
+        <div class="item"><i class="fas fa-envelope"></i> cassanvo@live.com</div>
+        <div class="item"><i class="fas fa-building"></i> Tribunal de Première Instance de Dabou</div>
+
+        <button class="btn" onclick="saveContact()">📥 Enregistrer le contact</button>
+    </div>
+
+</div>
+
+<script>
+function saveContact(){
+    const vcf = `BEGIN:VCARD
+VERSION:3.0
+FN:Aboidjé Cyrie ASSANVO
+N:ASSANVO;Aboidjé Cyrie;;;
+ORG:Ministère de la Justice et des Droits de l'Homme;Tribunal de Première Instance de Dabou
+TITLE:Attaché des Greffes et Parquets
+TEL;TYPE=CELL:+2250545243145
+TEL;TYPE=CELL:+2250747275271
+EMAIL:cassanvo@live.com
+ADR:;;Tribunal de Première Instance de Dabou;Dabou;Lagunes;Côte d’Ivoire;;
+NOTE:République de Côte d’Ivoire - Union - Discipline - Travail
+END:VCARD`;
+
+    const blob = new Blob([vcf], { type: "text/vcard" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "ASSANVO_Aboidje_Cyrie.vcf";
+    link.click();
+}
+</script>
+
+</body>
+</html>
